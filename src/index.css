@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+
+    --primary: 0 62% 48%;            /* #C53030 */
+    --primary-foreground: 0 0% 100%;
+    --primary-dark: 0 70% 36%;       /* #9B1C1C */
+    --primary-light: 0 93% 85%;      /* #FEB2B2 */
+
+    --gold: 38 92% 50%;              /* #F59E0B */
+    --gold-dark: 32 81% 36%;         /* #B45309 */
+    --gold-light: 48 96% 76%;        /* #FDE68A */
+
+    --surface: 33 100% 96%;          /* #FFF7ED */
+
+    --secondary: 33 100% 96%;
+    --secondary-foreground: 0 62% 48%;
+
+    --muted: 33 100% 96%;
+    --muted-foreground: 220 9% 46%;  /* #6B7280 */
+
+    --accent: 48 96% 76%;
+    --accent-foreground: 0 62% 48%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 48 96% 76%;            /* gold-tinted */
+    --input: 48 96% 76%;
+    --ring: 38 92% 50%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 0 62% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 33 100% 96%;
+    --sidebar-accent-foreground: 0 62% 48%;
+    --sidebar-border: 48 96% 76%;
+    --sidebar-ring: 38 92% 50%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  html { scroll-behavior: smooth; }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  h1, h2, h3, h4 { @apply font-display font-bold tracking-tight; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground shadow-red-soft transition-all hover:bg-primary-dark hover:shadow-gold-glow;
+  }
+  .btn-outline-gold {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-gold bg-transparent px-6 py-3 font-semibold text-primary transition-all hover:bg-gold-light hover:shadow-gold-glow;
+  }
+  .section { @apply py-16 md:py-24; }
+  .container-x { @apply container mx-auto px-4 md:px-6; }
+  .heading-accent {
+    @apply relative inline-block pb-3 after:absolute after:left-1/2 after:bottom-0 after:h-1 after:w-16 after:-translate-x-1/2 after:rounded-full after:bg-gradient-to-r after:from-primary after:to-gold;
+  }
+  .card-brand {
+    @apply rounded-2xl border border-gold-light bg-surface p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-gold-glow relative overflow-hidden;
+  }
+  .card-brand::before {
+    content: '';
+    @apply absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-primary to-gold;
+  }
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-gold bg-clip-text text-transparent;
+  }
+  .mandala-bg {
+    background-image: radial-gradient(circle at 20% 30%, hsl(var(--gold) / 0.06) 0%, transparent 40%),
+                      radial-gradient(circle at 80% 70%, hsl(var(--primary) / 0.05) 0%, transparent 40%);
+  }
+}
